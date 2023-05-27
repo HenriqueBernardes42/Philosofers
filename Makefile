@@ -6,7 +6,11 @@ NAME = philo
 SRC = \
 	$(SRC_DIR)/main.c \
 	$(SRC_DIR)/set_init_args.c \
-	$(SRC_DIR)/libft.c 
+	$(SRC_DIR)/set_dinner.c \
+	$(SRC_DIR)/set_philo.c \
+	$(SRC_DIR)/libft.c \
+	$(SRC_DIR)/time.c 
+
 
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

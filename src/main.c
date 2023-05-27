@@ -6,6 +6,6 @@ int main(int argc, char** argv)
 
     if(!set_init_args(argc, argv, &table))
         return (ERR);
-
+    set_dinner(&table);
     return (OK);
 }

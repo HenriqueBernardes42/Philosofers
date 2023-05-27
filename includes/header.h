@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>
+#include <sys/time.h>
 //proibidas
 #include <string.h>
 
@@ -10,6 +11,7 @@
 #define TRUE 1
 
 typedef pthread_mutex_t	t_mutex;
+typedef struct timeval	t_timeval;
 
 typedef struct s_philo
 {
@@ -38,8 +40,13 @@ typedef struct s_table
 
 //set_things
 int     set_init_args(int argc, char **argv, t_table *table);
+void    set_dinner(t_table *table);
+void    set_philo(t_table *table);
+
 
 //libft
-int	ft_atoi(const char *nptr);
-int	ft_isdigit(int c);
+int     ft_atoi(const char *nptr);
+int     ft_isdigit(int c);
 
+//time
+int     current_time();
