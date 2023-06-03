@@ -55,6 +55,9 @@ void	print(t_philo *ph, char *msg);
 
 void	*monitor(void *arg);
 
+void	*dinner(void *arg);
+
+
 void	eat(t_philo *ph);
 void	think(t_philo *ph);
 void	ph_sleep(t_philo *ph);

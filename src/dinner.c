@@ -37,27 +37,3 @@ void	*dinner(void *arg)
 	return (NULL);
 }
 
-int	init_thread(t_table *table)
-{
-	int		i;
-	t_philo	*philos;
-
-	if (set_philos(table))
-		return (1);
-	i = -1;
-	philos = table->philos;
-	table->tm_start = now();
-	pthread_create(&table->monitor, NULL, monitor, table);
-	while (++i < table->n_philos)
-	{
-		pthread_mutex_lock(&table->philos[i].lock);
-		philos[i].last_meal = table->tm_start;
-		pthread_mutex_unlock(&table->philos[i].lock);
-		pthread_create(&philos[i].thread, NULL, dinner, &philos[i]);
-	}
-	i = -1;
-	while (++i < table->n_philos)
-		pthread_join(philos[i].thread, NULL);
-	pthread_join(table->monitor, NULL);
-	return (0);
-}

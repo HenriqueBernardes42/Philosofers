@@ -8,6 +8,7 @@ SRC = \
 	$(SRC_DIR)/actions.c \
 	$(SRC_DIR)/dinner.c \
 	$(SRC_DIR)/libft.c \
+	$(SRC_DIR)/init_thread.c \
 	$(SRC_DIR)/set_args.c \
 	$(SRC_DIR)/set_philos.c \
 	$(SRC_DIR)/set_table.c \

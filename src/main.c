@@ -4,7 +4,7 @@ int	main(int argc, char **argv)
 {
 	t_table	table;
 
-	if (set_args(argc, argv, &table))
+	if (set_args(argc, argv))
 		return (1);
 	set_table(&table, argc, argv);
 	if (init_thread(&table))
