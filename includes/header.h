@@ -1,21 +1,18 @@
-#include <stdio.h>
-#include <pthread.h>
-#include <stdlib.h>
-#include <sys/time.h>
-//proibidas
-#include <string.h>
+#ifndef PHILO_H
+# define PHILO_H
 
-#define ERR 0
-#define OK 1
-#define FALSE 0
-#define TRUE 1
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <pthread.h>
+# include <sys/time.h>
 
 typedef pthread_mutex_t	t_mutex;
 typedef struct timeval	t_timeval;
 
 typedef struct s_philo
 {
- 	int				id;
+	int				id;
 	int				meals;
 	long			last_meal;
 	t_mutex			*l_fork;
@@ -24,29 +21,49 @@ typedef struct s_philo
 	t_mutex			meal;
 	pthread_t		thread;
 	struct s_table	*table;
-} t_philo;
+}	t_philo;
 
 typedef struct s_table
 {
-    int dead;
-    int times_need_to_eat;
-    int philo_qtty;
-    int time_to_die;
-    int time_to_eat;
-    int time_to_sleep;
-    t_mutex *forks;
-    t_philo *philos;
-} t_table;
+	int			n_philos;
+	int			tm_sleep;
+	int			num_eats;
+	int			time_eat;
+	int			time_die;
+	int			has_dead;
+	long		tm_start;
+	t_mutex		*forks;
+	t_mutex		print;
+	t_mutex		dead;
+	t_mutex		wait;
+	t_philo		*philos;
+	pthread_t	monitor;
+}	t_table;
 
-//set_things
-int     set_init_args(int argc, char **argv, t_table *table);
-void    set_dinner(t_table *table);
-void    set_philo(t_table *table);
+int		ft_isdigit(int c);
+int		ft_atoi(const char	*str);
+long	ft_atol(const char	*str);
+
+int		init_thread(t_table *table);
+
+long	now(void);
+void	burn(t_table *t);
+void	take_salt(int id);
+int		has_dead(t_table *t);
+void	set_last_meal(t_philo *ph);
+void	print(t_philo *ph, char *msg);
+
+void	*monitor(void *arg);
+
+void	eat(t_philo *ph);
+void	think(t_philo *ph);
+void	ph_sleep(t_philo *ph);
+void	take_fork(t_philo *ph);
+
+//set
+void	set_table(t_table *table, int argc, char **argv);
+int		set_args(int argc, char **argv);
+int		set_philos(t_table *table);
 
 
-//libft
-int     ft_atoi(const char *nptr);
-int     ft_isdigit(int c);
-
-//time
-int     current_time();
+#endif

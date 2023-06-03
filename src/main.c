@@ -1,11 +1,14 @@
 #include "header.h"
 
-int main(int argc, char** argv)
+int	main(int argc, char **argv)
 {
-    t_table table;
+	t_table	table;
 
-    if(!set_init_args(argc, argv, &table))
-        return (ERR);
-    set_dinner(&table);
-    return (OK);
+	if (set_args(argc, argv, &table))
+		return (1);
+	set_table(&table, argc, argv);
+	if (init_thread(&table))
+		return (1);
+	burn(&table);
+	return (0);
 }
