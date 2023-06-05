@@ -9,6 +9,6 @@ int	main(int argc, char **argv)
 	set_table(&table, argc, argv);
 	if (init_thread(&table))
 		return (1);
-	burn(&table);
+	ft_free(&table);
 	return (0);
 }

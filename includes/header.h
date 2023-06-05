@@ -1,6 +1,3 @@
-#ifndef PHILO_H
-# define PHILO_H
-
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -25,48 +22,55 @@ typedef struct s_philo
 
 typedef struct s_table
 {
-	int			n_philos;
-	int			tm_sleep;
+	int			philos_qtty;
+	int			time_sleep;
 	int			num_eats;
 	int			time_eat;
 	int			time_die;
 	int			has_dead;
-	long		tm_start;
+	long		time_start;
 	t_mutex		*forks;
 	t_mutex		print;
 	t_mutex		dead;
 	t_mutex		wait;
 	t_philo		*philos;
-	pthread_t	monitor;
+	pthread_t	sentinel;
 }	t_table;
 
+int	main(int argc, char **argv);
+
+//SET
+int	set_args(int argc, char **argv);
+int	set_philos(t_table *table);
+void set_table(t_table *table, int argc, char **argv);
+int	init_thread(t_table *table);
+
+void	*dinner(void *arg);
+
+//sentinel
+void	*sentinel(void *arg);
+int		has_dead(t_table *t);
+void	set_dead(t_table *t);
+
+
+//time
+long	current_time(void);
+
+//actions
+void	take_fork(t_philo *ph);
+void	eat(t_philo *ph);
+void	think(t_philo *ph);
+void	set_meal(t_philo *ph);
+void	ph_sleep(t_philo *ph);
+
+//libft
 int		ft_isdigit(int c);
 int		ft_atoi(const char	*str);
 long	ft_atol(const char	*str);
 
-int		init_thread(t_table *table);
-
-long	now(void);
-void	burn(t_table *t);
-void	take_salt(int id);
-int		has_dead(t_table *t);
-void	set_last_meal(t_philo *ph);
+//utils
 void	print(t_philo *ph, char *msg);
-
-void	*monitor(void *arg);
-
-void	*dinner(void *arg);
+void	set_last_meal(t_philo *ph);
+void	ft_free(t_table *t);
 
 
-void	eat(t_philo *ph);
-void	think(t_philo *ph);
-void	ph_sleep(t_philo *ph);
-void	take_fork(t_philo *ph);
-
-//set
-void	set_table(t_table *table, int argc, char **argv);
-int		set_args(int argc, char **argv);
-int		set_philos(t_table *table);
-
-
-#endif

@@ -4,15 +4,17 @@ INCLUDE = ./includes
 NAME = philo
 
 SRC = \
-	$(SRC_DIR)/main.c \
 	$(SRC_DIR)/actions.c \
 	$(SRC_DIR)/dinner.c \
-	$(SRC_DIR)/libft.c \
 	$(SRC_DIR)/init_thread.c \
+	$(SRC_DIR)/libft.c \
+	$(SRC_DIR)/main.c \
+	$(SRC_DIR)/sentinel_utils.c \
+	$(SRC_DIR)/sentinel.c \
 	$(SRC_DIR)/set_args.c \
 	$(SRC_DIR)/set_philos.c \
 	$(SRC_DIR)/set_table.c \
-	$(SRC_DIR)/monitor.c \
+	$(SRC_DIR)/time.c \
 	$(SRC_DIR)/utils.c 
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

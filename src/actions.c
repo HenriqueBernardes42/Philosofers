@@ -48,7 +48,7 @@ void	think(t_philo *ph)
 	t = ph->table;
 	t_eat = t->time_eat;
 	t_die = t->time_die;
-	t_sleep = t->tm_sleep;
+	t_sleep = t->time_sleep;
 	if (!has_dead(ph->table))
 	{
 		print(ph, "is thinking");
@@ -62,6 +62,6 @@ void	ph_sleep(t_philo *ph)
 	if (!has_dead(ph->table))
 	{
 		print(ph, "is sleeping");
-		usleep(ph->table->tm_sleep * 1000);
+		usleep(ph->table->time_sleep * 1000);
 	}
 }

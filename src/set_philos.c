@@ -14,13 +14,13 @@ int	set_philos(t_table *table)
 	if (set_mutex(table))
 		return (1);
 	i = -1;
-	while (++i < table->n_philos)
+	while (++i < table->philos_qtty)
 	{
 		table->philos[i].id = i;
 		table->philos[i].meals = 0;
-		table->philos[i].last_meal = now();
+		table->philos[i].last_meal = current_time();
 		table->philos[i].l_fork = &table->forks[i];
-		table->philos[i].r_fork = &table->forks[(i + 1) % table->n_philos];
+		table->philos[i].r_fork = &table->forks[(i + 1) % table->philos_qtty];
 		table->philos[i].table = table;
 		pthread_mutex_init(&table->philos[i].lock, NULL);
 		pthread_mutex_init(&table->philos[i].meal, NULL);
@@ -33,7 +33,7 @@ static int	set_mutex(t_table *table)
 	int	i;
 
 	i = -1;
-	while (++i < table->n_philos)
+	while (++i < table->philos_qtty)
 	{
 		if (pthread_mutex_init(&table->forks[i], NULL))
 		{
