@@ -35,34 +35,6 @@ int	ft_atoi(const char	*str)
 	return (nbr * sign);
 }
 
-long	ft_atol(const char	*str)
-{
-	long	nbr;
-	long	buf;
-	int		sign;
-	size_t	count;
-
-	nbr = 0;
-	sign = 1;
-	count = space_counter(str);
-	if (str[count] == '-' || str[count] == '+')
-		if (str[count++] == '-')
-			sign = -1;
-	while (ft_isdigit(str[count]))
-	{
-		buf = nbr;
-		nbr = (nbr * 10) + (str[count++] - '0');
-		if (buf > nbr)
-		{
-			if (sign > 0)
-				return (-1);
-			else
-				return (0);
-		}
-	}
-	return (nbr * sign);
-}
-
 static int	space_counter(const char	*s)
 {
 	int	count;

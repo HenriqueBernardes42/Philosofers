@@ -66,7 +66,6 @@ void	ph_sleep(t_philo *ph);
 //libft
 int		ft_isdigit(int c);
 int		ft_atoi(const char	*str);
-long	ft_atol(const char	*str);
 
 //utils
 void	print(t_philo *ph, char *msg);
