@@ -23,6 +23,7 @@ int	check_digits(char *argv)
 {
 	int	i;
 
+	printf("(atol) %ld\n", ft_atol(argv));
 	if (ft_atol(argv) <= 0)
 	{
 		printf("FAIL: The argument must be greater than zero\n");
