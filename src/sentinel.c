@@ -47,12 +47,12 @@ int	get_meal(t_philo *ph)
 	return (meal);
 }
 
-int	has_dead(t_table *t)
+int	has_dead(t_table *table)
 {
 	int	status;
 
-	pthread_mutex_lock(&t->dead);
-	status = t->has_dead;
-	pthread_mutex_unlock(&t->dead);
+	pthread_mutex_lock(&table->dead);
+	status = table->has_dead;
+	pthread_mutex_unlock(&table->dead);
 	return (status);
 }
