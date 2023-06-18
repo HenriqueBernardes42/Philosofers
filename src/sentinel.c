@@ -14,6 +14,7 @@ void	*sentinel(void *arg)
 	t = arg;
 	while (!has_dead(t) && get_meal(&t->philos[i]) != t->num_eats)
 	{
+		printf(".\n");
 		check_death(&t->philos[i]);
 		i = (i + 1) % t->philos_qtty;
 		usleep(542);
