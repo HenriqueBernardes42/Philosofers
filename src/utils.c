@@ -10,9 +10,7 @@ void	print(t_philo *ph, char *msg)
 
 void	set_last_meal(t_philo *ph)
 {
-	pthread_mutex_lock(&ph->lock);
 	ph->last_meal = current_time();
-	pthread_mutex_unlock(&ph->lock);
 }
 
 void	ft_free(t_table *t)
@@ -20,7 +18,6 @@ void	ft_free(t_table *t)
 	int		i;
 
 	i = -1;
-	usleep(542);
 	while (++i < t->philos_qtty)
 	{
 		pthread_mutex_destroy(&t->forks[i]);

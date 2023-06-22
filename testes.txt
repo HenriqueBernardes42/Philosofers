@@ -1,0 +1,11 @@
+./philo 200c 100 100 100        - não deve conter letras
+./philo 1 1 200 100 100 100     - não pode haver mais de 6 e menos de 4 argumentos
+./philo -200 100 100 100        - os argumentos devem ser maiores que 0
+
+
+./philo 1 800 200 200          - não deve comer e deve morrer
+./philo 5 800 200 200          - nenhum filosofo deve morrer
+./philo 5 800 200 200 7        - | grep "1 is eating" | wc -l
+./philo 4 410 200 200          - nenhum filosofo deve morrer
+./philo 4 310 200 100          - um filosofo deve morrer
+./philo 2 200 100 100          - um intervalo com mais de 10ms é inaceitável

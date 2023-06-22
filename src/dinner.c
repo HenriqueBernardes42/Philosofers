@@ -21,14 +21,13 @@ void	*dinner(void *arg)
 		ph_sleep(philo);
 		think(philo);
 	}
-	usleep(1000);
 	return (NULL);
 }
 
 void	take_a_break(int id)
 {
 	if (id % 2 == 0)
-		usleep(542);
+		usleep(1000);
 }
 
 void	dinner_one(t_philo *ph)
@@ -37,6 +36,6 @@ void	dinner_one(t_philo *ph)
 	print(ph, "has taken a fork");
 	pthread_mutex_unlock(ph->l_fork);
 	while (!has_dead(ph->table))
-		usleep(542);
+		usleep(1000);
 }
 

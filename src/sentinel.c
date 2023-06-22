@@ -14,10 +14,9 @@ void	*sentinel(void *arg)
 	t = arg;
 	while (!has_dead(t) && get_meal(&t->philos[i]) != t->num_eats)
 	{
-		printf(".\n");
 		check_death(&t->philos[i]);
 		i = (i + 1) % t->philos_qtty;
-		usleep(542);
+		usleep(1000);
 	}
 	return (NULL);
 }
@@ -31,7 +30,7 @@ void	check_death(t_philo *ph)
 	pthread_mutex_lock(&t->wait);
 	time = current_time() - get_last_meal(ph);
 	pthread_mutex_unlock(&t->wait);
-	if (time > t->time_die)
+	if (time > t->time_die && ph->eating == 0)
 	{
 		print(ph, "died");
 		set_dead(t);

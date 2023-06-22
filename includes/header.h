@@ -10,6 +10,7 @@ typedef struct timeval	t_timeval;
 typedef struct s_philo
 {
 	int				id;
+	int				eating;
 	int				meals;
 	long			last_meal;
 	t_mutex			*l_fork;

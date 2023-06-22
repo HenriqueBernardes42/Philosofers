@@ -21,6 +21,7 @@ int	set_philos(t_table *table)
 		table->philos[i].last_meal = current_time();
 		table->philos[i].l_fork = &table->forks[i];
 		table->philos[i].r_fork = &table->forks[(i + 1) % table->philos_qtty];
+		table->philos[i].eating = 0;
 		table->philos[i].table = table;
 		pthread_mutex_init(&table->philos[i].lock, NULL);
 		pthread_mutex_init(&table->philos[i].meal, NULL);
