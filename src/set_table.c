@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_table.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbernard <hbernard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/22 15:44:59 by hbernard          #+#    #+#             */
+/*   Updated: 2023/06/22 15:47:57 by hbernard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void set_table(t_table *table, int argc, char **argv)
+void	set_table(t_table *table, int argc, char **argv)
 {
 	table->has_dead = 0;
 	table->num_eats = -1;

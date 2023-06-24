@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dinner.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbernard <hbernard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/22 15:44:33 by hbernard          #+#    #+#             */
+/*   Updated: 2023/06/24 15:19:43 by hbernard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void	take_a_break(int id);
@@ -35,7 +47,6 @@ void	dinner_one(t_philo *ph)
 	pthread_mutex_lock(ph->l_fork);
 	print(ph, "has taken a fork");
 	pthread_mutex_unlock(ph->l_fork);
-	while (!has_dead(ph->table))
-		usleep(1000);
+	print(ph, "died");
+	ph->table->has_dead = 1;
 }
-

@@ -1,3 +1,6 @@
+#ifndef HEADER_H
+# define HEADER_H
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -38,13 +41,13 @@ typedef struct s_table
 	pthread_t	sentinel;
 }	t_table;
 
-int	main(int argc, char **argv);
+int		main(int argc, char **argv);
 
 //SET
-int	set_args(int argc, char **argv);
-int	set_philos(t_table *table);
-void set_table(t_table *table, int argc, char **argv);
-int	init_thread(t_table *table);
+int		set_args(int argc, char **argv);
+int		set_philos(t_table *table);
+void	set_table(t_table *table, int argc, char **argv);
+int		init_thread(t_table *table);
 
 void	*dinner(void *arg);
 
@@ -52,7 +55,6 @@ void	*dinner(void *arg);
 void	*sentinel(void *arg);
 int		has_dead(t_table *t);
 void	set_dead(t_table *t);
-
 
 //time
 long	current_time(void);
@@ -73,4 +75,4 @@ void	print(t_philo *ph, char *msg);
 void	set_last_meal(t_philo *ph);
 void	ft_free(t_table *t);
 
-
+#endif

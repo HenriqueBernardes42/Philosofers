@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_args.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbernard <hbernard@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/22 15:44:53 by hbernard          #+#    #+#             */
+/*   Updated: 2023/06/22 15:45:48 by hbernard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 int	check_digits(char *argv);
@@ -15,7 +27,6 @@ int	set_args(int argc, char **argv)
 	while (++i < argc)
 		if (check_digits(argv[i]))
 			return (1);
-
 	return (0);
 }
 
